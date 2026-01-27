@@ -1,4 +1,1 @@
-tfx
-matplotlib
-scipy
-seaborn
+pytest

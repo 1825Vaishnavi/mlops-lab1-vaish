@@ -6,9 +6,11 @@ from sklearn.compose import make_column_transformer
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from sklearn.tree import DecisionTreeClassifier
 
-WORKING_DIR = "/opt/airflow/working_data"
-MODEL_DIR = "/opt/airflow/model"
+WORKING_DIR = os.path.join(os.getcwd(), "working_data")
+MODEL_DIR = os.path.join(os.getcwd(), "model")
+
 os.makedirs(WORKING_DIR, exist_ok=True)
 os.makedirs(MODEL_DIR, exist_ok=True)
 
@@ -44,7 +46,7 @@ def data_preprocessing(file_path: str) -> str:
     y = df["Clicked on Ad"]
 
     X_train, X_test, y_train, y_test = train_test_split(
-        X, y, test_size=0.3, random_state=42
+        X, y, test_size=0.25, random_state=42
     )
 
     num_columns = [
@@ -82,7 +84,10 @@ def build_model(file_path: str, filename: str) -> str:
     with open(file_path, "rb") as f:
         X_train, X_test, y_train, y_test = pickle.load(f)
 
-    model = LogisticRegression()
+    model = DecisionTreeClassifier()
+    print("Running modified model pipeline — custom version")
+
+
     model.fit(X_train, y_train)
 
     model_path = os.path.join(MODEL_DIR, filename)
@@ -107,3 +112,4 @@ def load_model(file_path: str, filename: str) -> int:
 
     pred = model.predict(X_test)
     return int(pred[0])
+

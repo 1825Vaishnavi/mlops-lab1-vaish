@@ -32,7 +32,7 @@ AUC Score = 0.9949
 
 
 # Results
-ModelAUC ScoreRandom Forest0.9759Gradient Boosting0.9949 ✅
+ModelAUC ScoreRandom Forest0.9759Gradient Boosting0.9949 
 # Best Model: Gradient Boosting
 
 # MLflow Steps Covered

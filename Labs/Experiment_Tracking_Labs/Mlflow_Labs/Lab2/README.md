@@ -69,16 +69,16 @@ PassedTest 10Feature importances valid
 
 # How to Run
 
-Install dependencies:
+## 1. Install dependencies:
 
 bashpip install mlflow scikit-learn pandas numpy seaborn matplotlib cloudpickle requests
 
-Open Jupyter Notebook:
+## 2. Open Jupyter Notebook:
 
 bashjupyter notebook
 
 Run lab2_breast_cancer.ipynb cell by cell
-To serve the model:
+## 3. To serve the model:
 
 bashpython -m mlflow models serve -m models:/breast_cancer_detection/production -h 0.0.0.0 -p 5001 --no-conda
 

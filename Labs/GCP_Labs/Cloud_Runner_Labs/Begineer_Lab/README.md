@@ -9,15 +9,15 @@ This lab demonstrates deploying a containerized Flask application on Google Clou
 - Modified home route with custom welcome message
 
 ## Live Deployment URL
-https://vaishnavi-cloud-app-1024717028832.us-central1.run.app
+https://vaishnaviapp-1024717028832.us-central1.run.app
 
 ## Test Routes
-- Home: https://vaishnavi-cloud-app-1024717028832.us-central1.run.app/
-- About: https://vaishnavi-cloud-app-1024717028832.us-central1.run.app/about
-- Health: https://vaishnavi-cloud-app-1024717028832.us-central1.run.app/health
-
+- Home: https://vaishnaviapp-1024717028832.us-central1.run.app/
+- About: https://vaishnaviapp-1024717028832.us-central1.run.app/about
+- Health: https://vaishnaviapp-1024717028832.us-central1.run.app/health
+  
 ## Project Structure
-Begineer_Lab/
+Beginner_Lab/
 ├── app.py
 ├── Dockerfile
 ├── requirements.txt
@@ -33,5 +33,5 @@ Begineer_Lab/
 7. Tested all routes successfully
 
 ## Author
-**Vaishnavi Gajarla**
+### Vaishnavi Gajarla
 Northeastern University

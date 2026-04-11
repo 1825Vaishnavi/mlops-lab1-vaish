@@ -86,6 +86,10 @@ Go to: http://localhost:8000/docs
 }
 ```
 
+
+## Screenshort
+<img width="1915" height="964" alt="Screenshot 2026-04-10 234718" src="https://github.com/user-attachments/assets/a23949ad-81a7-4e01-9fb1-d9bbb72a1e81" />
+
 ## Wine Classes
 | Class | Wine Type |
 |---|---|

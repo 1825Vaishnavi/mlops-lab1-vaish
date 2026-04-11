@@ -1,35 +1,25 @@
-from fastapi import FastAPI, status, HTTPException
-from pydantic import BaseModel
-from predict import predict_data
+from fastapi import FastAPI, HTTPException
+from data import WineData, WineResponse
+from predict import predict_wine
 
+app = FastAPI(
+    title="Wine Classifier API",
+    description="Classifies wine type using a Decision Tree model trained on the Wine dataset",
+    version="1.0.0"
+)
 
-app = FastAPI()
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Wine Classification API!"}
 
-class IrisData(BaseModel):
-    petal_length: float
-    sepal_length: float
-    petal_width: float
-    sepal_width: float
+@app.get("/health")
+async def health():
+    return {"status": "running", "model": "DecisionTreeClassifier", "dataset": "Wine"}
 
-class IrisResponse(BaseModel):
-    response:int
-
-@app.get("/", status_code=status.HTTP_200_OK)
-async def health_ping():
-    return {"status": "healthy"}
-
-@app.post("/predict", response_model=IrisResponse)
-async def predict_iris(iris_features: IrisData):
+@app.post("/predict", response_model=WineResponse)
+async def predict(data: WineData):
     try:
-        features = [[iris_features.sepal_length, iris_features.sepal_width,
-                    iris_features.petal_length, iris_features.petal_width]]
-
-        prediction = predict_data(features)
-        return IrisResponse(response=int(prediction[0]))
-    
+        result = predict_wine(data)
+        return result
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
-    
-
-
-    
